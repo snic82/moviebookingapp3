@@ -1,0 +1,26 @@
+<div class="container-sm justify-content-center col-lg-4 mt-5">
+    <form class="form-signin" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <h2 class="form-signin-heading">Login</h2>
+        <div class="form-group mt-2">
+          <label for="loginid">LoginId</label>
+          <input class="form-control" placeholder="LoginId" id="loginid" type="text" #loginid="ngModel" name="loginid"
+            [(ngModel)]="formModel.loginId" required />
+        </div>
+        <div class="form-group mt-2">
+          <label for="password">Password</label>
+          <input class="form-control" placeholder="Password" id="password" type="password" #password="ngModel"
+            name="password" [(ngModel)]="formModel.password" required />
+        </div>
+
+        <div class="form-group col-md-8 mt-4 mb-4">
+          <button class="btn btn-lg btn-primary btn-block" [disabled]="form.invalid">Login</button>
+        </div>
+        <div>
+          <a routerLink="/forgotpassword">Forgot Password</a>
+          <p class="mb-0">OR</p>
+          <p>Don't have an account <a routerLink="/register">SignUp</a></p>
+        </div>
+    </form>
+
+</div>
+

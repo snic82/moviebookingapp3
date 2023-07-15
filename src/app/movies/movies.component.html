@@ -1,0 +1,19 @@
+<body>
+    <div class="form-group mt-5">
+        <input type="text" class="form-control" id="searchmovie" 
+        [(ngModel)]="searchMovie" placeholder="Enter Movie Name to search"
+        autofocus (input)="findMovieBySearch(searchMovie)">
+    </div>
+    <div *ngIf="searchMovie.trim().length" class="movie-grid mt-5">
+        <p-card *ngFor="let movie of moviesList" [header]="movie.movieName" [subheader]="movie.theatreName" [style]="{width:'286px'}">
+        <p-button label="Book Now" (onClick)="bookTickectsNavigation(movie)"></p-button>
+        <button *ngIf="service.isAdmin" class="btn btn-lg btn-danger"  (click)="deleteMovie(movie)" [style]="{'margin-left':'.5em'}">Delete</button>
+        </p-card>
+    </div>
+    <div *ngIf="searchMovie.trim().length==0" class="movie-grid mt-5">
+        <p-card *ngFor="let movie of moviesList" [header]="movie.movieName" [subheader]="movie.theatreName" [style]="{width:'286px'}">
+        <p-button label="Book Now" (onClick)="bookTickectsNavigation(movie)"></p-button>
+        <button *ngIf="service.isAdmin" class="btn btn-lg btn-danger" (click)="deleteMovie(movie)" [style]="{'margin-left':'.5em'}">Delete</button>
+        </p-card>
+    </div>
+</body>

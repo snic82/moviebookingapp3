@@ -1,0 +1,9 @@
+<div class="mt-5 mx-4">
+    <p-card *ngFor="let ticket of ticketsByuser" [style]="{'border':'1px black','margin-bottom':'1px'}">
+        <h2>Movie Name: {{ticket.movieName}}</h2>
+        <h3>Theatre Name: {{ticket.theatreName}}</h3>
+        <h4>Number of Seats: {{ticket.numberOfTickets}}</h4>
+        <h4>Booked Seat Numbers: {{ticket.seatNumbers}}</h4>
+    </p-card>
+    <button class="btn btn-danger my-4" routerLink="/movies">Back</button>
+</div>
